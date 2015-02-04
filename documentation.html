@@ -1,0 +1,351 @@
+<html>
+	<head>
+		<script src="jquery.js"></script>
+		<script src="c_alert.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/c_alert.css" />
+		<meta charset="UTF-8">
+		<style>
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: 'Montserrat', sans-serif;
+			font-size:16px;
+			background-color: #fCfCfC;
+		}
+		.textbox { 
+			border: 1px solid #c4c4c4; 
+			height: 25px; 
+			font-size: 13px; 
+			padding: 4px 4px 4px 4px; 
+			border-radius: 4px; 
+			-moz-border-radius: 4px; 
+			-webkit-border-radius: 4px; 
+			box-shadow: 0px 0px 8px #d9d9d9; 
+			-moz-box-shadow: 0px 0px 8px #d9d9d9; 
+			-webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+		} 
+		.btn-default {
+		  color: #333;
+		  background-color: #fff;
+		  border-color: #ccc;
+		}
+		.btn-default:hover,
+		.btn-default:focus,
+		.btn-default:active {
+		  color: #333;
+		  background-color: #e6e6e6;
+		  border-color: #adadad;
+		  outline: 0;
+		}
+		.btn-default:active {
+		  background-image: none;
+		}
+		.textbox:focus { 
+			outline: none; 
+			border: 1px solid #7bc1f7; 
+			box-shadow: 0px 0px 8px #7bc1f7; 
+			-moz-box-shadow: 0px 0px 8px #7bc1f7; 
+			-webkit-box-shadow: 0px 0px 8px #7bc1f7; 
+		} 
+		#uppercase,#scrollbar,#x_toclose {
+			margin: 10px;
+		}
+		.properties_table table tr td:first-child {
+			color: #0078C9;
+			font-weight: bold;
+		}
+		.properties_table table tr:first-child td:first-child {
+			color: #fff;
+		}
+		.properties_table {
+			margin:0px;padding:0px;
+			width:100%;
+			border:1px solid #000000;
+			
+			-moz-border-radius-bottomleft:2px;
+			-webkit-border-bottom-left-radius:2px;
+			border-bottom-left-radius:2px;
+			
+			-moz-border-radius-bottomright:2px;
+			-webkit-border-bottom-right-radius:2px;
+			border-bottom-right-radius:2px;
+			
+			-moz-border-radius-topright:2px;
+			-webkit-border-top-right-radius:2px;
+			border-top-right-radius:2px;
+			
+			-moz-border-radius-topleft:2px;
+			-webkit-border-top-left-radius:2px;
+			border-top-left-radius:2px;
+		}.properties_table table{
+			border-collapse: collapse;
+				border-spacing: 0;
+			width:100%;
+			height:100%;
+			margin:0px;padding:0px;
+		}.properties_table tr:last-child td:last-child {
+			-moz-border-radius-bottomright:2px;
+			-webkit-border-bottom-right-radius:2px;
+			border-bottom-right-radius:2px;
+		}
+		.properties_table table tr:first-child td:first-child {
+			-moz-border-radius-topleft:2px;
+			-webkit-border-top-left-radius:2px;
+			border-top-left-radius:2px;
+		}
+		.properties_table table tr:first-child td:last-child {
+			-moz-border-radius-topright:2px;
+			-webkit-border-top-right-radius:2px;
+			border-top-right-radius:2px;
+		}.properties_table tr:last-child td:first-child{
+			-moz-border-radius-bottomleft:2px;
+			-webkit-border-bottom-left-radius:2px;
+			border-bottom-left-radius:2px;
+		}.properties_table tr:hover td{
+			
+		}
+		.properties_table tr:nth-child(odd){ background-color:#c7e7fc; }
+		.properties_table tr:nth-child(even)    { background-color:#dce9f2; }.properties_table td{
+			vertical-align:middle;
+			
+			
+			border:1px solid #000000;
+			border-width:0px 1px 1px 0px;
+			text-align:center;
+			padding:9px;
+			font-size:14px;
+			font-family:'Montserrat', sans-serif;
+			font-weight:normal;
+			color:#000000;
+		}.properties_table tr:last-child td{
+			border-width:0px 1px 0px 0px;
+		}.properties_table tr td:last-child{
+			border-width:0px 0px 1px 0px;
+		}.properties_table tr:last-child td:last-child{
+			border-width:0px 0px 0px 0px;
+		}
+		.properties_table tr:first-child td{
+				background:-o-linear-gradient(bottom, #0078c9 5%, #0078c9 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0078c9), color-stop(1, #0078c9) );
+			background:-moz-linear-gradient( center top, #0078c9 5%, #0078c9 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0078c9", endColorstr="#0078c9");	background: -o-linear-gradient(top,#0078c9,0078c9);
+
+			background-color:#0078c9;
+			border:0px solid #000000;
+			text-align:center;
+			border-width:0px 0px 1px 1px;
+			font-size:16px;
+			font-family:'Montserrat', sans-serif;
+			font-weight:bold;
+			color:#ffffff;
+		}
+		.properties_table tr:first-child:hover td{
+			background:-o-linear-gradient(bottom, #0078c9 5%, #0078c9 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0078c9), color-stop(1, #0078c9) );
+			background:-moz-linear-gradient( center top, #0078c9 5%, #0078c9 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0078c9", endColorstr="#0078c9");	background: -o-linear-gradient(top,#0078c9,0078c9);
+
+			background-color:#0078c9;
+		}
+		.properties_table tr:first-child td:first-child{
+			border-width:0px 0px 1px 0px;
+		}
+		.properties_table tr:first-child td:last-child{
+			border-width:0px 0px 1px 1px;
+		}
+		</style>
+	</head>
+	<body>
+		<div style="margin-left: 10px; margin-top: 10px; margin-bottom: 20px">
+			<div style="margin-left: 10px; margin-top: 10px">
+				<h1>Let&#39;s try!</h1>
+			</div>
+			<input type="checkbox" id="uppercase" checked><span id="v_uppercase"></span><br>
+			<input type="checkbox" id="scrollbar"><span id="v_scrollbar"></span>&nbsp;<span style="color: #a0a0a0">(check it if you don&#39;t want scrollbar when alert appear)</span><br>
+			<input type="checkbox" id="x_toclose" checked><span id="v_x_toclose"></span>&nbsp;<span style="color: #a0a0a0">(check it if you don&#39;t want "x" button to close the alert)</span><br>
+			<div style="margin-left: 10px; margin-top: 10px">
+			Width: <input class="textbox" size="1" type="text" id="width" value="50%">
+			</div>
+			<div style="margin-left: 10px; margin-top: 10px">
+			Background color: <input class="textbox" size="3" type="text" id="color" value="#ffffff"><span style="color: #a0a0a0"> (Hex/RGB and all CSS3 supported formats)</span><br>
+			</div>
+			<div style="margin-left: 10px; margin-top: 10px">
+			Font: <input class="textbox" size="25" type="text" id="font" value="'Montserrat', sans-serif"><br>
+			</div>
+			<div style="margin-left: 10px; margin-top: 10px">
+				<input id="input" type="button" class="c_alert_btn btn-default" value="Open it!">
+			</div>
+			<div style="margin-left: 10px; margin-top: 10px; margin-right: 20px">
+				<h1>Getting started:</h1>
+				<h2>1. Load jQuery and include c_alert's plugin files</h2>
+				After you download c_alert, move c_alert.css and c_alert.js to your root's CSS and JavaScript directories.<br>
+				Next, load jQuery and include c_alert's CSS and JavaScript files inside of your tags:
+<pre>
+<code class="html">&#x3C;head&#x3E;
+  ...
+    &#x3C;script src=&#x22;jquery.js&#x22;&#x3E;&#x3C;/script&#x3E;&#x9;
+    &#x3C;script src=&#x22;c_alert.js&#x22;&#x3E;&#x3C;/script&#x3E;
+    &#x3C;link href=&#x22;http://fonts.googleapis.com/css?family=Montserrat:400,700&#x22; rel=&#x22;stylesheet&#x22; type=&#x22;text/css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; type=&#x22;text/css&#x22; href=&#x22;css/c_alert.css&#x22; /&#x3E;
+  ...
+&#x3C;/head&#x3E;</code>
+</pre>
+				<h2>2. Set up the alert</h2>
+				This is an example of alert setup, for all values and properties click <a href="#properties">here</a>
+<pre>
+<code class="js">var options = {
+  scrollbar: false,
+  width: "50%",
+  color: "#ffffff",
+  font: "'Montserrat', sans-serif",
+  uppercase: true,
+  x_toclose: true
+}
+c_alert_settings(options);
+</code>
+</pre>
+<h2 style="color:#0078c9">3. Manage the alert</h2>
+<pre>
+<code class="js">/*c_alert have two optional parameters:
+-First one: "html" -&#x3E; the simple text or html text that will appear in the alert.
+-Second one: "button" -&#x3E; the text for the window button[default: "Ok"], if you put put an empty string for this parameter, there's no button.
+If you call the function without both parameters, this will return the text into it.
+*/
+//Examples
+c_alert('Heyyy, this is first example!'); //it will show you the alert with simple text:"Heyyy, this is first example!".
+c_alert(); //in this case it will return "Heyyy, this is first example!".
+c_alert_close(); //this will close the alert.
+</code>
+</pre>
+			</div>
+			<div style="margin-left: 10px; margin-right: 20px; margin-top: 10px; height: 400px">
+			<h1>Setting up your custom alert</h1>
+			<div class="properties_table" style="height: 300px">
+                <table >
+                    <tr>
+                        <td>
+                            Properties
+                        </td>
+                        <td >
+                            Values
+                        </td>
+                        <td>
+                            Description
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            width
+                        </td>
+                        <td>
+                            px or percentage (string)
+                        </td>
+                        <td>
+                            Determines width of the alert. The percentage value is relative to the screen. <span style="font-weight: bold">Default: 50%</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            color
+                        </td>
+                        <td>
+                            hex/rgb color (string)
+                        </td>
+                        <td>
+                            This value will set background color of the alert. To color text inside the alert you can use directly HTML. <br>You can use CSS3 supported colors for this value. <span style="font-weight: bold">Default: #ffffff</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            font
+                        </td>
+                        <td>
+                            font-family in CSS3 (string)
+                        </td>
+                        <td>
+                            With this value you can choose the font of the alert.<span style="font-weight: bold">Default: 'Montserrat', sans-serif</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            scrollbar
+                        </td>
+                        <td>
+                            true/false (boolean)
+                        </td>
+                        <td>
+                            Set it to "true" if you want scrollbar when alert appear, "false" if you don&#39;t want it. <span style="font-weight: bold">Default: false</span>
+                        </td>
+                    </tr>
+					<tr>
+                        <td >
+                            uppercase
+                        </td>
+                        <td>
+                            true/false (boolean)
+                        </td>
+                        <td>
+                            Set it to "false" if you want default text format for the alert, "true" if you want all text in uppercase format. <span style="font-weight: bold">Default: true</span>
+                        </td>
+                    </tr>
+					<tr>
+                        <td >
+                            x_toclose
+                        </td>
+                        <td>
+                            true/false (boolean)
+                        </td>
+                        <td>
+                            Set it to "false" if you don&#39;t want x button to close the alert, "true" if you want it. <span style="font-weight: bold">Default: true</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+			</div>
+		</div>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+			$('#v_uppercase').html('UPPERCASE[TRUE]');
+			$('#v_scrollbar').html('scrollbar[false]');
+			$('#v_x_toclose').html('X BUTTON[TRUE]');
+			$('#x_toclose').click(function() {
+				if($(this).is(":checked")) {
+					$('#v_x_toclose').html('X BUTTON[TRUE]');
+				}
+				else {
+					$('#v_x_toclose').html('x button[false]');
+				}
+			});
+			$('#scrollbar').click(function() {
+				if($(this).is(":checked")) {
+					$('#v_scrollbar').html('SCROLLBAR[TRUE]');
+				}
+				else {
+					$('#v_scrollbar').html('scrollbar[false]');
+				}
+			});
+			$('#uppercase').click(function() {
+				if($(this).is(":checked")) {
+					$('#v_uppercase').html('UPPERCASE[TRUE]');
+				}
+				else {
+					$('#v_uppercase').html('uppercase[false]');
+				}
+			});
+			$('#input').click(function() {
+				var options = {
+					scrollbar: $('#scrollbar').is(":checked"),
+					width: $('#width').val(),
+					color: $('#color').val(),
+					font: $('#font').val(),
+					uppercase: $('#uppercase').is(":checked"),
+					x_toclose: $('#x_toclose').is(":checked")
+				}
+				c_alert_settings(options);
+				c_alert('example alert 1 with <div style="display: inline-block; border-bottom: 1px solid #000000; text-weight: bold"><span style="color: #ff0000">H</span><span style="color: #FF00FF">T</span><span style="color: 00FF00">M</span><span style="color: 0000FF">L</span></div>','Ok');
+			});
+
+		</script>
+	</body>
+</html>
